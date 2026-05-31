@@ -1,5 +1,32 @@
 # Astro Academia Documentation
 
+## Quickstart
+
+
+For development do:
+
+```
+nvm install
+npm install
+npm run dev  # Rerun this one every time you need to startup a server
+```
+
+Then your local server will be up on [http://localhost:4321](http://localhost:4321).
+
+Once you're done, you can check if it builds with `npm run build`.
+
+Then to get your stuff on github (which will automatically deploy to your website), do something like:
+
+```
+git status
+git add ?? # Where ?? is the file you changed
+git status # should be green now
+git commit -m 'my message' # Change the message to something description
+git push
+```
+
+Then it should be available on [yutingirene.github.io](https://yutingirene.github.io).
+
 ## What is Astro Academia?
 
 Astro Academia is a personal academic website built using Astro, a modern static site generator. The website is designed to showcase academic achievements, research papers, blog posts, and a CV. It is fast, responsive, and easy to maintain, making it an ideal platform for academics and researchers to present their work.
