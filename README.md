@@ -9,8 +9,8 @@ For development do:
 nvm install
 npm install
 npm run dev  # Rerun this one every time you need to startup a server
-```
 
+```
 Then your local server will be up on [http://localhost:4321](http://localhost:4321).
 
 Once you're done, you can check if it builds with `npm run build`.
