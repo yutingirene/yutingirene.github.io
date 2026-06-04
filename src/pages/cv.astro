@@ -3,58 +3,66 @@ import Layout from "@/layouts/Layout.astro";
 import {
     experiences,
     education,
-    Honours,
+    honours,
     publications,
-    Conference,
+    conferences,
 } from "../data/cv";
-import CvTimeline from "@/components/ui/CvTimeline.astro";
 
 import type {
     Experience,
     Education,
     Publication,
     Conference,
+    Honour,
 } from "../types/cv";
+
+import CvTimeline from "@/components/ui/CvTimeline.astro";
 import List from "@/components/ui/List.astro";
 import PublicationsList from "@/components/ui/PublicationsList.astro";
 
 let orderedExperiences: Experience[] = [];
 let orderedEducations: Education[] = [];
-let orderedHonours: Honours[] = [];
+let orderedHonours: Honour[] = [];
 let orderedPublications: Publication[] = [];
 let orderedConference: Conference[] = [];
 
-const orderElement = <T extends { time: string }>(a: T, b: T) => {
-    const presentValues = ["present", "now", "current", "today"];
-    if (
-        presentValues.includes(
-            (a["time"] as string)?.split(" - ")[1]?.toLowerCase(),
-        )
-    ) {
-        // If the date is 'present', it should be the first element
-        return -1;
-    }
-    const dateA = new Date((a["time"] as string)?.split(" - ")[1]);
-    const dateB = new Date((b["time"] as string)?.split(" - ")[1]);
-    return dateB.getTime() - dateA.getTime();
+const presentKeywords = ["present", "now", "current", "today"];
+
+const parseEndDate = (timeRange: string): number => {
+    // Normalise " - ", "--", en-dash, em-dash, etc.
+    const normalized = timeRange.replace(/\s*[-–—]\s*/g, "--");
+    const parts = normalized.split("--");
+    const end = parts.length > 1 ? parts[1].trim() : parts[0].trim();
+
+    if (presentKeywords.includes(end.toLowerCase())) return Infinity;
+
+    // Replace dots with dashes so new Date() can parse e.g. 2024.10 → 2024-10
+    const isoLike = end.replace(/\./g, "-");
+    const d = new Date(isoLike);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
 };
 
+const orderElement = <T extends { time: string }>(a: T, b: T) =>
+    parseEndDate(b.time) - parseEndDate(a.time);
+
 if (experiences.length > 0) {
-    orderedExperiences = experiences.sort((a, b) => {
-        return orderElement(a, b);
-    });
+    orderedExperiences = [...experiences].sort(orderElement);
 }
 
 if (education.length > 0) {
-    orderedEducations = education.sort((a, b) => {
-        return orderElement(a, b);
-    });
+    orderedEducations = [...education].sort(orderElement);
 }
 
 if (publications.length > 0) {
-    orderedPublications = publications.sort((a, b) => {
-        return orderElement(a, b);
-    });
+    orderedPublications = [...publications].sort(orderElement);
+}
+
+if (conferences.length > 0) {
+    orderedConference = [...conferences].sort(orderElement);
+}
+
+if (honours.length > 0) {
+    orderedHonours = [...honours].sort(orderElement);
 }
 ---
 
@@ -78,11 +86,12 @@ if (publications.length > 0) {
             </section>
         )
     }
+
     {
         orderedPublications.length > 0 && (
             <section class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 border-b pb-2">
-                    Last publications
+                    Publications
                 </h2>
                 <PublicationsList elements={orderedPublications} />
             </section>
@@ -90,12 +99,13 @@ if (publications.length > 0) {
     }
 
     {
-        Honours.length > 0 && (
+        orderedHonours.length > 0 && (
             <section class="mb-12">
-                <List listTitle="Honours" listItems={Honours} />
+                <List listTitle="Honours" listItems={orderedHonours} />
             </section>
         )
     }
+
     {
         orderedConference.length > 0 && (
             <section class="mb-12">

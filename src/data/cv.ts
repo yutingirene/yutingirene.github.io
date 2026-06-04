@@ -12,16 +12,16 @@ export const experiences = [
     description: "Teach English to senior high school students",
   },
   {
-    title: "Research Assistant (RA)",
-    company: "The Centre for Language Studies (CLS) at Radboud University",
-    time: "2025.01--2025.03",
-    description: "VR experiment RA",
-  },
-  {
     title: "Research Internship ",
     company: "Donders Institute for Brain, Cognition, and Behaviour ",
     time: "2024.08--2025.07",
     description: "Master internship, design experiment and collect data",
+  },
+  {
+    title: "Research Assistant (RA)",
+    company: "The Centre for Language Studies (CLS) at Radboud University",
+    time: "2025.01--2025.03",
+    description: "VR experiment RA",
   },
   {
     title: "Graduate Teaching Assistant(GTA) ",
@@ -77,7 +77,7 @@ export const education = [
   },
 ];
 
-export const Honours = [
+export const honours = [
   {
     title: "GSA Academic Travel Grant ($500)",
     time: "2026.03",
@@ -116,7 +116,7 @@ export const publications = [
   },
 ];
 
-export const Conference = [
+export const conferences = [
   {
     title:
       "Longitudinal Acoustic Analysis of the English Consonant /ɹ/ in the Word Frog Among Japanese Returnee Children",

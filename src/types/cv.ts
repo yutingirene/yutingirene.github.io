@@ -28,18 +28,45 @@ export interface Publication {
   abstract?: string;
 }
 
-export function isExperience(element: Experience | Education): element is Experience {
-  return 'title' in element && 'company' in element;
+export interface Conference {
+  title: string;
+  authors?: string;
+  description?: string;
+  name: string;
+  location?: string;
+  time: string;
 }
 
-export function isEducation(element: Education | Experience): element is Education {
-  return 'school' in element && 'degree' in element;
+export interface Honour {
+  title: string;
+  time: string;
+  description?: string;
+}
+
+export function isExperience(
+  element: Experience | Education | Conference,
+): element is Experience {
+  return "company" in element;
+}
+
+export function isEducation(
+  element: Education | Experience | Conference,
+): element is Education {
+  return "school" in element;
+}
+
+export function isConference(
+  element: Experience | Education | Conference,
+): element is Conference {
+  return "name" in element && !("company" in element) && !("school" in element);
 }
 
 export function isSkill(element: Skill | Publication): element is Skill {
-  return 'description' in element;
+  return "description" in element;
 }
 
-export function isPublication(element: Skill | Publication): element is Publication {
-  return 'authors' in element;
+export function isPublication(
+  element: Skill | Publication,
+): element is Publication {
+  return "authors" in element;
 }
