@@ -12,8 +12,8 @@ import type {
     Experience,
     Education,
     Publication,
-    Conference,
-    Honour,
+    Conferences,
+    Honours,
 } from "../types/cv";
 
 import CvTimeline from "@/components/ui/CvTimeline.astro";
@@ -22,9 +22,9 @@ import PublicationsList from "@/components/ui/PublicationsList.astro";
 
 let orderedExperiences: Experience[] = [];
 let orderedEducations: Education[] = [];
-let orderedHonours: Honour[] = [];
+let orderedHonours: Honours[] = [];
 let orderedPublications: Publication[] = [];
-let orderedConference: Conference[] = [];
+let orderedConferences: Conferences[] = [];
 
 const presentKeywords = ["present", "now", "current", "today"];
 
@@ -43,7 +43,7 @@ const parseEndDate = (timeRange: string): number => {
 };
 
 const orderElement = <T extends { time: string }>(a: T, b: T) =>
-    parseEndDate(b.time) - parseEndDate(a.time);
+    parseEndDate(a.time) - parseEndDate(b.time);
 
 if (experiences.length > 0) {
     orderedExperiences = [...experiences].sort(orderElement);
@@ -58,7 +58,7 @@ if (publications.length > 0) {
 }
 
 if (conferences.length > 0) {
-    orderedConference = [...conferences].sort(orderElement);
+    orderedConferences = [...conferences].sort(orderElement);
 }
 
 if (honours.length > 0) {
@@ -107,12 +107,12 @@ if (honours.length > 0) {
     }
 
     {
-        orderedConference.length > 0 && (
+        orderedConferences.length > 0 && (
             <section class="mb-12">
                 <h2 class="text-2xl font-bold mb-6 border-b pb-2">
                     Conference
                 </h2>
-                <CvTimeline elements={orderedConference} colored={true} />
+                <CvTimeline elements={orderedConferences} colored={true} />
             </section>
         )
     }

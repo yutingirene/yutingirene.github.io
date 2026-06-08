@@ -79,18 +79,8 @@ export const education = [
 
 export const honours = [
   {
-    title: "GSA Academic Travel Grant ($500)",
-    time: "2026.03",
-    description: "University of Alberta",
-  },
-  {
-    title: "Graduate Recruitment Award($5000)",
-    time: "2025.09",
-    description: "University of Alberta",
-  },
-  {
-    title: "Exchange Programm Scholarship",
-    time: "2022.04",
+    title: "Outstanding Member of Student Associations,",
+    time: "2020.05",
     description: "Yangzhou University",
   },
   {
@@ -99,9 +89,19 @@ export const honours = [
     description: "Yangzhou University",
   },
   {
-    title: "Outstanding Member of Student Associations,",
-    time: "2020.05",
+    title: "Exchange Programm Scholarship",
+    time: "2022.04",
     description: "Yangzhou University",
+  },
+  {
+    title: "Graduate Recruitment Award($5000)",
+    time: "2025.09",
+    description: "University of Alberta",
+  },
+  {
+    title: "GSA Academic Travel Grant ($500)",
+    time: "2026.03",
+    description: "University of Alberta",
   },
 ];
 
@@ -137,11 +137,22 @@ export const conferences = [
   },
   {
     title:
+      "Rapid Prosody Transcription as a tool to assess the perception of phrase-level prominence in Mandarin",
+    authors: "Patrick Louis Rohrer, Yuting Sun, Yiya Chen, Hans Rutger Bosker",
+    description: "Poster Presentation",
+    name: "SpeechProsody 2026",
+    location: "Philadelphia, USA",
+    time: "2026.05",
+    link: "https://www.isca-archive.org/speechprosody_2026/rohrer26_speechprosody.pdf",
+  },
+  {
+    title:
       "Focus on Canadian English: Acoustic Realization and Listener Perception",
     authors: "Yuting Sun, Ziyan Zou, Anja Arnhold",
     description: "Poster Presentation",
     name: "LabPhon20",
     location: "Montreal, Canada",
     time: "2026.06",
+    link: "/papers/Focus_in_Canadian_English_Linking_Acoustic_Realization_to_Perception_Accuracy.pdf",
   },
 ];

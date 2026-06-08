@@ -24,8 +24,8 @@ export interface Publication {
   authors: string;
   journal: string;
   time: string;
-  link?: string;
-  abstract?: string;
+  link: string;
+  abstract: string;
 }
 
 export interface Conference {

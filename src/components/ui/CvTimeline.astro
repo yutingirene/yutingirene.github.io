@@ -57,6 +57,16 @@ const { elements, colored } = Astro.props;
                                 : ""}
                     </div>
                     <div>{element.location}</div>
+                    {/* Add this new block to render the link */}
+                    {"link" in element && element.link && (
+                        <a
+                            href={element.link}
+                            target="_blank"
+                            class="text-accent hover:underline text-sm font-bold mt-2 inline-block"
+                        >
+                            View Link / PDF ↗
+                        </a>
+                    )}
                 </div>
                 <hr class:list={[{ "bg-accent": colored }]} />
             </li>

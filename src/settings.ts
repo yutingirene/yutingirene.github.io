@@ -4,17 +4,37 @@ export const profile = {
   institute: "",
   author_name: "", // Author name to be highlighted in the papers section
   research_areas: [
-    // { title: 'Physics', description: 'Brief description of the research interest', field: 'physics' },
+    {
+      title: "Speech Perception",
+      description: "Investigating the perception of sounds",
+      field: "linguistics",
+    },
+    {
+      title: "Speech Production",
+      description: "the acoustic changes of sounds",
+      field: "linguistics",
+    },
+    {
+      title: "Multimodality",
+      description: "investigate the beat gesture, head movement",
+      field: "linguistics",
+    },
+    {
+      title: "L2 and HS",
+      description:
+        "second language acquistion and heritage langauge acquistion",
+      field: "linguistics",
+    },
   ],
 };
 
 // Set equal to an empty string to hide the icon that you don't want to display
 export const social = {
-  email: "",
-  linkedin: "",
+  email: "syuting@ualberta.ca",
+  linkedin: "https://www.linkedin.com/in/yuting-sun-38a021270",
+  github: "https://github.com/yutingirene",
   x: "",
   bluesky: "",
-  github: "",
   gitlab: "",
   scholar: "",
   inspire: "",
