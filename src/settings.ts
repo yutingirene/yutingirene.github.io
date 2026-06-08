@@ -12,7 +12,7 @@ export const profile = {
 export const social = {
   email: "",
   linkedin: "",
-  x: "https://www.x.com/",
+  x: "",
   bluesky: "",
   github: "",
   gitlab: "",
