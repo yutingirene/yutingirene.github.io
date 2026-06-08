@@ -1,0 +1,89 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+// 1. Import your images from the assets folder here
+import cat1 from "@/assets/cat1.jpg";
+import cat2 from "@/assets/cat2.jpg";
+import cat3 from "@/assets/cat3.jpg";
+import cat4 from "@/assets/cat4.jpg";
+import me1 from "@/assets/myself1.jpg";
+import me2 from "@/assets/myself2.jpg";
+import me3 from "@/assets/myself3.jpg";
+---
+
+<Layout title="Life & Cats">
+    <div class="prose max-w-none mb-12">
+        <h1 class="text-3xl font-bold mb-4">Life & Cats</h1>
+        <p class="text-lg text-base-content/80">
+            Although I don't have my own cat, I am always surrounded by cats! I
+            love travelling and have different colors of hats:))
+        </p>
+    </div>
+
+    <!-- Cats Section -->
+    <section class="mb-16">
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">Meet the Cats</h2>
+
+        <!-- This grid makes the images sit side-by-side on larger screens -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={cat1}
+                    alt="Picture of my first cat"
+                    class="w-full h-64 object-cover m-0"
+                />
+            </div>
+
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={cat2}
+                    alt="Picture of my second cat"
+                    class="w-full h-64 object-cover m-0"
+                />
+            </div>
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={cat3}
+                    alt="Picture of my second cat"
+                    class="w-full h-64 object-cover m-0"
+                />
+            </div>
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={cat4}
+                    alt="Picture of my second cat"
+                    class="w-full h-64 object-cover m-0"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Section -->
+    <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 border-b pb-2">
+            Guess how many colors of berets do I have
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={me1}
+                    alt="green beret and green cat"
+                    class="w-full h-48 object-cover m-0"
+                />
+            </div>
+            <div class="card bg-base-200 shadow-xl overflow-hidden">
+                <Image
+                    src={me2}
+                    alt="orange beret in the Netherlands"
+                    class="w-full h-48 object-cover m-0"
+                />
+            </div>
+        </div>
+    </section>
+    <div class="card bg-base-200 shadow-xl overflow-hidden">
+        <Image src={me3} alt="red" class="w-full h-48 object-cover m-0" />
+    </div>
+</Layout>
+
+<!-- You can easily add more picture cards here later! -->
