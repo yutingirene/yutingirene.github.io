@@ -54,7 +54,7 @@ export const template = {
 };
 
 export const seo = {
-  default_title: "Astro Academia",
-  default_description: "Astro Academia is a template for academic websites.",
+  default_title: "Yuting Sun",
+  default_description: "This is my academic website.",
   default_image: "/images/astro-academia.png",
 };
